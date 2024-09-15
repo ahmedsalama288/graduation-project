@@ -12,6 +12,7 @@ export default function Navbar() {
         flex items-center gap-2
         justify-between xl:justify-center
         flex-row-reverse xl:flex-row
+        max-h-[70px]
       "
     >
       <Logo />

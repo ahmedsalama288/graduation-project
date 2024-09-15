@@ -18,30 +18,22 @@ export default function MainNavbarSection({
   nestedLinks,
   pathname,
 }: props) {
-  const linkHref = ignoredLinks.includes(href)
-    ? ""
-    : href;
+  const linkHref = ignoredLinks.includes(href) ? "" : href;
   const parentSegmentInUrl = getFirstSegment(pathname);
   const hasNestedLinks = !!nestedLinks.length;
 
   return (
     <li
       className={cn(
-        `
-          before:content-[""] before:w-full before:h-7
-          before:absolute before:top-9 
-          before:hidden hover:before:block
-          whitespace-nowrap relative px-4 py-3 rounded-md cursor-pointer
-          transition-colors hover:bg-sky-700 group
-        `,
+        "before:absolute before:w-full before:h-[10px]",
+        "before:top-full before:right-0 before:hidden hover:before:inline",
+        "whitespace-nowrap relative px-4 py-3 rounded-md cursor-pointer",
+        "transition-colors hover:bg-sky-700 group relative",
         href === parentSegmentInUrl && "bg-sky-700"
       )}
     >
       {!hasNestedLinks && (
-        <Link
-          href={linkHref}
-          className=" flex items-center gap-[2px]"
-        >
+        <Link href={linkHref} className=" flex items-center gap-[2px]">
           {name}
         </Link>
       )}
@@ -57,21 +49,23 @@ export default function MainNavbarSection({
           </button>
           <ul
             className="
-            absolute top-16 right-2 rounded bg-slate-200 
+            absolute top-[58px] right-2 rounded bg-slate-200 
             hidden group-hover:flex flex-col
             w-64 max-w-72 min-w-fit
             drop-shadow-lg z-[1000]
           "
           >
-            {nestedLinks.map(({ name, href = "", nestedLinks, prefetch = true }) => (
-              <NestedLink
-                key={name}
-                name={name}
-                href={href}
-                prefetch={prefetch}
-                nestedLinks={nestedLinks}
-              />
-            ))}
+            {nestedLinks.map(
+              ({ name, href = "", nestedLinks, prefetch = true }) => (
+                <NestedLink
+                  key={name}
+                  name={name}
+                  href={href}
+                  prefetch={prefetch}
+                  nestedLinks={nestedLinks}
+                />
+              )
+            )}
           </ul>
         </>
       )}

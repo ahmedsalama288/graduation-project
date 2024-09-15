@@ -21,7 +21,6 @@ export const metadata: Metadata = {
     "معهد الدلتا",
   ],
   robots: "index",
-  appleWebApp: { capable: true, title: "Delta Higher Institute" },
   other: {
     'google-site-verification': "VDuukQq_dvLy1lWB6xqwW4Ct7DN_KqWF48Y3kQYhQnk",
   },
@@ -40,10 +39,10 @@ export default function RootLayout({
       <body
         className={`${cairo.className} flex flex-col min-h-screen antialiased bg-slate-100`}
       >
-        <header className=" h-[70px] flex justify-center items-center relative xl:fixed top-0 w-full z-[100000] bg-light-blue drop-shadow-lg ">
+        <header className=" max-h-[69px] flex lg:sticky top-0 justify-center items-center w-full z-[100000] bg-light-blue drop-shadow-lg ">
           <Navbar />
         </header>
-        <main className="xl:mt-[70px] overflow-y-hidden flex-1">
+        <main className=" overflow-y-hidden flex-1">
           {children}
         </main>
         <FooterSection />
