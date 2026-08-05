@@ -2,7 +2,7 @@ import ContentWrapper from "@/app/ui/shared-ui/pages-components/content-wrapper"
 import MainPageHeader from "@/app/ui/shared-ui/pages-components/main-page-header";
 import MemberPhoto from "@/app/ui/shared-ui/pages-components/member-photo";
 import PageContentContainer from "@/app/ui/shared-ui/pages-components/page-content-container";
-import deanOfTheInstituteImage from "@/../../public/dr-images/dr-ahmed-abu-al-futouh.jpg";
+import deanOfTheInstituteImage from "@public/dr-images/dr-ahmed-abu-al-futouh.jpg";
 import ContentHeader from "@/app/ui/shared-ui/pages-components/content-header";
 import ContentContainer from "@/app/ui/shared-ui/pages-components/content-container";
 import { academicLeadersInfo } from "@/app/lib/constants";

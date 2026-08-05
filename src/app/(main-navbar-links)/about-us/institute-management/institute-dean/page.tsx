@@ -1,5 +1,5 @@
 import MainPageHeader from "@/app/ui/shared-ui/pages-components/main-page-header";
-import imageSrc from "@/../../public/dr-images/dr-ahmed-abu-al-futouh.jpg";
+import imageSrc from "@public/dr-images/dr-ahmed-abu-al-futouh.jpg";
 import MemberPhoto from "@/app/ui/shared-ui/pages-components/member-photo";
 import PageContentContainer from "@/app/ui/shared-ui/pages-components/page-content-container";
 import ContentContainer from "@/app/ui/shared-ui/pages-components/content-container";

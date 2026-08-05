@@ -4,9 +4,9 @@ import { useState } from "react";
 import Image from "next/image";
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/outline";
 
-import imageOne from "@/../../public/landing-images/landing-one.avif";
-import imageTwo from "@/../../public/landing-images/landing-two.avif";
-import imageThree from "@/../../public/landing-images/landing-three.avif";
+import imageOne from "@public/landing-images/landing-one.avif";
+import imageTwo from "@public/landing-images/landing-two.avif";
+import imageThree from "@public/landing-images/landing-three.avif";
 
 const landingImages = [imageOne, imageTwo, imageThree];
 

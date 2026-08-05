@@ -1,7 +1,7 @@
 import MainPageHeader from "@/app/ui/shared-ui/pages-components/main-page-header";
 import PageContentContainer from "@/app/ui/shared-ui/pages-components/page-content-container";
 import ContentWrapper from "@/app/ui/shared-ui/pages-components/content-wrapper";
-import organizationalChartImage from "@/../../public/about-us/organizational-chart/organizational-chart.jpeg";
+import organizationalChartImage from "@public/about-us/organizational-chart/organizational-chart.jpeg";
 import Image from "next/image";
 import { Metadata } from "next";
 

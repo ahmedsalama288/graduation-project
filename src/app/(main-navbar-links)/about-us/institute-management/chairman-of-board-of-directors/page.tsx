@@ -1,6 +1,6 @@
 import MainPageHeader from "@/app/ui/shared-ui/pages-components/main-page-header";
 import PageContentContainer from "@/app/ui/shared-ui/pages-components/page-content-container";
-import imageSrc from "@/../../public/dr-images/dr-muhammad-rabie-nasser.jpeg";
+import imageSrc from "@public/dr-images/dr-muhammad-rabie-nasser.jpeg";
 import MemberPhoto from "@/app/ui/shared-ui/pages-components/member-photo";
 import ContentWrapper from "@/app/ui/shared-ui/pages-components/content-wrapper";
 import ContentHeader from "@/app/ui/shared-ui/pages-components/content-header";

@@ -21,6 +21,7 @@ export default function MobileNavbar() {
   };
 
   // when the user navigate to another page close the nav-bar
+  // eslint-disable-next-line react-hooks/set-state-in-effect
   useEffect(closeMenuHandler, [pathname]);
 
   return (

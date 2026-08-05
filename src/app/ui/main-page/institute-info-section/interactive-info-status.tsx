@@ -9,7 +9,7 @@ interface Props {
 
 export default function InteractiveInfoStatus({ statusNumber }: Props) {
   const [count, setCount] = useState(0);
-  const ref = useRef(null)
+  const ref = useRef<HTMLDivElement>(null)
   const inView = useInView(ref,{ threshold: 1 });
 
   useEffect(() => {

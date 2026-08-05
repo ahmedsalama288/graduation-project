@@ -1,9 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import landingImageOne from "@/../../public/landing-images/landing-one.webp";
-import landingImageTwo from "@/../../public/landing-images/landing-two.webp";
-import landingImageThree from "@/../../public/landing-images/landing-three.webp";
+import landingImageOne from "@public/landing-images/landing-one.webp";
+import landingImageTwo from "@public/landing-images/landing-two.webp";
+import landingImageThree from "@public/landing-images/landing-three.webp";
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/outline";
 import { useState } from "react";
 import AnimatedSection from "../../shared-ui/pages-components/animated-section";

@@ -18,7 +18,7 @@ export default function AnimatedSection({
   endPosition = "translate-y-0 opacity-100",
   duration,
 }: Props) {
-  const ref = useRef(null);
+  const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { threshold: threshold || 0.01 });
 
   return (

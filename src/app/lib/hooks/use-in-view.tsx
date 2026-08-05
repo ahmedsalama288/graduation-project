@@ -6,7 +6,7 @@ interface IntersectionOptions {
   root?: Element | null;
 }
 const useInView = (
-  elementRef: RefObject<Element>,
+  elementRef: RefObject<Element | null>,
   options: IntersectionOptions = {}
 ) => {
   const [inView, setInView] = useState(false);
