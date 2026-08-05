@@ -1,6 +1,6 @@
 # AGENTS.md
 
-Arabic RTL website for "معهد الدلتا العالي" (Delta Institute for Management & Accounting Information Systems). Next.js 16 App Router + TypeScript (strict) + Tailwind 3.
+Arabic RTL website for "معهد الدلتا العالي" (Delta Institute for Management & Accounting Information Systems). Next.js 16 App Router + TypeScript (strict) + Tailwind 4.
 
 ## Commands
 
@@ -23,5 +23,6 @@ Arabic RTL website for "معهد الدلتا العالي" (Delta Institute for
 - `public/pdf/` is served statically; several pages pass `pdfHref=""` (placeholders awaiting files) — leave them.
 - Contact-us map is Google Maps loaded via `next/dynamic` with `ssr: false` inside the client wrapper `src/app/ui/contact-us/institute-map-dynamic.tsx` (Server Components can't use `ssr: false`).
 - Turbopack is the default bundler for dev and build. `next/image` quality props are constrained by `images.qualities: [30, 60, 70, 80, 85, 90, 100]` in `next.config.mjs` — add a value there before using a new `quality` prop. In dev, Turbopack warns it won't re-encode AVIF static imports (they're emitted as-is) — benign.
-- Custom Tailwind colors in `tailwind.config.ts`: `main-blue` (#015994), `light-blue` (#016eac), `black-gray` (#1f1f1f). Reuse them rather than hex literals.
+- Tailwind v4 is CSS-first (`@import "tailwindcss"` in `src/app/ui/globals.css`); there is no `tailwind.config.ts`. Custom brand colors are `@theme` tokens in globals.css: `main-blue` (#015994), `light-blue` (#016eac), `black-gray` (#1f1f1f), `mist` (#F5F8FB), `deep-navy` (#062A44), `fertile` (#1E7B62). Reuse them rather than hex literals.
+- shadcn/ui is installed (`components.json`, aliases `ui`/`components` → `@/app/ui/components`, `utils` → `@/app/lib/utils`, `hooks` → `@/app/lib/hooks`). Components live in `src/app/ui/components/`. RTL is on, base is radix, style is radix-nova. Globals.css keeps the shadcn `:root`/`.dark` oklch tokens and imports `tw-animate-css` + `shadcn/tailwind.css` (needed for `data-open:`/`data-closed:` variants and accordion keyframes).
 - Path aliases `@/*` → `./src/*` and `@public/*` → `./public/*`; utils `cn()` (clsx + tailwind-merge) is in `src/app/lib/utils.ts`.

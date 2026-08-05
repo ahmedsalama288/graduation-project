@@ -1,49 +1,33 @@
-import { InstituteStatusInfo } from "@/app/lib/definitions";
-import InfoCard from "./info-card";
-import { UserGroupIcon } from "@heroicons/react/16/solid";
-import { AcademicCapIcon } from "@heroicons/react/16/solid";
-import PageContentContainer from "../../shared-ui/pages-components/page-content-container";
-import ContentWrapper from "../../shared-ui/pages-components/content-wrapper";
-import ContentHeader from "../../shared-ui/pages-components/content-header";
 import AnimatedSection from "../../shared-ui/pages-components/animated-section";
+import HomeSectionHeader from "../home-section-header";
+import InfoCard from "./info-card";
 
-const statusList: InstituteStatusInfo[] = [
-  {
-    statusName: "عدد الطلاب بالمعهد",
-    statusNumber: 5769,
-    icon: <UserGroupIcon className="h-16 w-16 sm:h-24 sm:w-24 text-white" />,
-    description: "طالب",
-  },
-  {
-    statusName: "عدد الطلاب الخريجين بالمعهد ",
-    statusNumber: 10609,
-    icon: <AcademicCapIcon className="h-16 w-16 sm:h-24 sm:w-24 text-white" />,
-    description: "طالب",
-  },
+const statusList = [
+  { statusName: "طالب بالمعهد", statusNumber: 5769 },
+  { statusName: "خريج من المعهد", statusNumber: 10609 },
+  { statusName: "أقسام أكاديمية", statusNumber: 3 },
+  { statusName: "درجة علمية", statusNumber: 2 },
 ];
 
 export default function InstituteInfoContainer() {
   return (
-    <article>
+    <article className="bg-deep-navy text-white">
       <AnimatedSection>
-        <PageContentContainer>
-          <ContentWrapper>
-            <ContentHeader text="معهد الدلتا بالأرقام" />
-            <div className=" flex flex-col justify-around items-center lg:flex-row gap-6 ">
-              {statusList.map(
-                ({ statusName, statusNumber, icon, description }) => (
-                  <InfoCard
-                    key={statusName}
-                    statusName={statusName}
-                    statusNumber={statusNumber}
-                    icon={icon}
-                    description={description}
-                  />
-                )
-              )}
-            </div>
-          </ContentWrapper>
-        </PageContentContainer>
+        <div className="container mx-auto px-4 py-16 sm:py-20">
+          <HomeSectionHeader
+            title="معهد الدلتا بالأرقام"
+            titleClassName="text-white"
+          />
+          <div className="mt-10 grid grid-cols-2 gap-x-6 gap-y-10 sm:gap-y-12 lg:mt-14 lg:grid-cols-4">
+            {statusList.map(({ statusName, statusNumber }) => (
+              <InfoCard
+                key={statusName}
+                statusName={statusName}
+                statusNumber={statusNumber}
+              />
+            ))}
+          </div>
+        </div>
       </AnimatedSection>
     </article>
   );

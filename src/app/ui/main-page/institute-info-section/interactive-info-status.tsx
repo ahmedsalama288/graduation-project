@@ -1,7 +1,7 @@
 "use client";
 
+import { useEffect, useRef, useState } from "react";
 import useInView from "@/app/lib/hooks/use-in-view";
-import {  useEffect, useRef, useState } from "react";
 
 interface Props {
   statusNumber: number;
@@ -9,27 +9,29 @@ interface Props {
 
 export default function InteractiveInfoStatus({ statusNumber }: Props) {
   const [count, setCount] = useState(0);
-  const ref = useRef<HTMLDivElement>(null)
-  const inView = useInView(ref,{ threshold: 1 });
+  const ref = useRef<HTMLSpanElement>(null);
+  const inView = useInView(ref, { threshold: 0.5 });
 
   useEffect(() => {
-    if (inView) {
-      const counterInterval = setInterval(() => {
-        setCount((prevCount) =>
-          prevCount < statusNumber ? prevCount + 11 : statusNumber
-        );
-      }, 0.01);
-      return () => clearInterval(counterInterval);
-    }
+    if (!inView) return;
+    const duration = 1600;
+    const startTime = performance.now();
+    let frame = 0;
+
+    const tick = (now: number) => {
+      const progress = Math.min((now - startTime) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      setCount(Math.round(eased * statusNumber));
+      if (progress < 1) frame = requestAnimationFrame(tick);
+    };
+
+    frame = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(frame);
   }, [inView, statusNumber]);
 
   return (
-    <div
-      ref={ref}
-      className=" flex flex-col gap-2 justify-center items-center mb-2 sm:mb-4"
-    >
-      <p className=" text-base">اكثر من</p>
-      <p className=" text-2xl sm:text-3xl">{count}</p>
-    </div>
+    <span ref={ref} className="tabular-nums">
+      {count.toLocaleString("en-US")}
+    </span>
   );
 }
